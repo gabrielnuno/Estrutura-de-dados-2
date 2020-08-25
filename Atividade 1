@@ -1,0 +1,169 @@
+package javaapplication82;
+import java.util.Scanner;
+public class JavaApplication82 {
+
+    public static void main(String[] args) {
+             Scanner in = new Scanner(System.in); 
+    }
+}
+
+
+package javaapplication82;
+public class TreeNode <T> {
+    private TreeNode <T> Esquerda;
+    private TreeNode <T> Direita;
+    private T info;
+    
+    TreeNode(T valor){
+        this.info= valor;
+    }
+    void setInfo(T valor){
+        this.info= valor;
+    }
+    T getInfo(){
+        return this.info;
+    }
+    void setEsquerda(TreeNode<T> e){
+        this.Esquerda= e;
+    }
+    TreeNode<T> getEsquerda(){
+        return this.Esquerda;
+    }
+    void setDireita(TreeNode<T> d){
+        this.Esquerda= d;
+    }
+    TreeNode<T> getDiretia(){
+        return this.Esquerda;
+    } 
+}
+
+package javaapplication82;
+
+public class Arvore {
+    
+    public void inserir(int valor){
+        if(raiz==null){
+            raiz= new Node(valor);
+        }else {
+            raiz= inserirElemento(raiz,valor);
+        }
+    }
+    
+    private Node inserirElemento(Node r, int valor){
+        if(r==null){
+            r = new Node( valor);
+        } else if(valor< r.getInfo()){
+            r.setEsquerda(inserirElemento(r.getEsquerda(),valor));
+        }else{
+             r.setDireita(inserirElemento(r.getDireita(),valor));
+        }
+        return r;
+    }
+    public T busca(T valor){
+        if(raiz== null){
+            return null;
+        }else{
+            return raiz.encontrarElemento(valor);
+        }
+    }
+    private T encontrarElemento( T valor){
+        if(valor.compareTo(this.info)==0){
+            return this.info;
+        }else if(valor.compareTo(this.info)<0) {
+            if(this.Esquerda==null){
+                return null;
+            }else {
+                return this.Esquerda.encontrarElemento(valor);
+            }
+        }else{
+             if(this.Direita==null){
+                return null;
+            }else {
+                return this.Direitac.encontrarElemento(valor);
+            }
+        }
+    }
+        public void Preordem(){
+	if(raiz==null){
+		return null
+	}else{
+		percorrerPreOrdem;
+	}
+}
+      Private void percorrerPreOrdem(Node <T> r){
+            if(valor!=null){
+                  System.out.println(r.getInfo());
+ 	pecorrerPreOrdem(valor.get.Esquerda());
+	pecorrePreOrdem(valor.getDireita());
+ }
+
+         public void Emordem(){
+	if(raiz==null){
+                       return null
+	}else{
+                        pecorrerEmOrdem;
+	}
+}     
+          Private void percorrerEmOrdem(Node <T> r){
+                  if(valor!=null){
+ 	pecorrerEmOrdem(valor.getEsquerda());
+                  System.out.println(r.getInfo());
+	pecorrertEmOrdem(valor.getDireita());
+   }
+}
+  
+          public void Posordem(){
+	 if(raiz==null){
+                         return null
+	}else{
+                       pecorrerPosOrdem;
+	}
+}
+             Private void percorrerPosOrdem(Node <T> r){
+                if(valor!=null){
+ 	pecorrertPosOrdem(valor.getEsquerda());
+	pecorrerPosOrdem(valor.getDireirta());
+                  System.out.println(r.getInfo());
+  }
+}
+              public void remove(T valor){
+	if(raiz== null){
+		System.out.println("Árvore vazia");
+	}else{
+		raiz.remove(raiz,valor);
+	}
+}
+private Arvore <T> remove(Arvore<T>r, T valor){
+	if(r==null){
+		System.out.println("Elemento não encontrado");
+	}else if(valor.CompareTo(r.getInfo())==0){
+		if(r.getEsquerda()==null && r.getDireita()==null){
+			r=null;
+		}else if(r.getEsquerda()==null){
+			r=r.getDireita();
+		}else if(r.getDireita()==null){
+			r=r.getEsquerda();
+		}else {
+			Arvore <T> pai, filho;
+			pai=r.getEsquerda();
+			filho=pai.getDireita();
+			if(filho!=null){
+				while(filho.getDireita()!=null){
+					pai=filho;
+					filho=filho.getDireita();
+				}
+				pai.setDireita(filho.getEsquerda());
+				r.setInfo(filho.getInfo());
+			}else{
+				r.setEsquerda(pai.getEsquerda());
+				r.setInfo(pai.getInfo());
+			}
+		}
+	}else if(valor.CompareTo(r.getInfo())<0){
+		r.setEsquerda(remover(r.getEsquerda,valor));
+	}else {
+		r.setDireita(remover(r.getDireita, valor));
+	}
+	return r;
+}
+}
