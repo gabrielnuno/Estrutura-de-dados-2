@@ -1,0 +1,115 @@
+package arvoreAVL;
+
+import java.util.Set;
+
+public interface MyMap <KInteger, V>{
+        class No {
+		private int chave, altura;
+		private No esquerda, direita;
+
+		public No(int d) {
+			chave = d;
+			altura = 1;
+		}
+
+        public int getChave() {
+            return chave;
+        }
+
+        public int getAltura() {
+            return altura;
+        }
+
+        public No getEsquerda() {
+            return esquerda;
+        }
+
+        public No getDireita() {
+            return direita;
+        }
+               
+        public void setChave(int chave) {
+            this.chave = chave;
+        }
+
+        public void setEsquerda(No esquerda) {
+            this.esquerda = esquerda;
+        }
+
+        public void setDireita(No direita) {
+            this.direita = direita;
+        }	
+}
+ public int size(){
+ return this.getSize();
+}
+public boolean isEmpty(){
+    if(avl!=null){
+      return false;
+     }else{
+       return true;
+   }
+}
+
+public boolean containsKey(Integer key){
+   findObjetcK(Object key);
+}
+private boolean findObjectK(Object key){
+  if(key.eqeals(this.getInfo())==0){
+    return true;
+   }else if (key.equals(this.getInfo()<0){
+         if(this.getEsquerda()!=null){
+             this.esquerda.findObjectK(key);
+         }else{
+              return null;
+}
+  }else{
+          if(this.getDireita()!=null){
+             this.Direirta.findObjectK(key);
+         }else{
+              return null;
+    }  
+  }
+private void get(Interget key){
+  return this.getKey.findObjectK(Interger key);
+ }
+private int altura(No N) {
+		if (N == null){
+			return 0;
+                                       }
+		return N.getAltura();
+	}
+ private void put(Integer key, V value){
+  	if (no == null)
+			return (new No(key));
+
+		if (key < no.key){
+			no.esquerda = inserir(no.esquerda, key);
+		}else if (key > no.key){
+			no.direita = inserir(no.direita, key);
+		}else{
+			return no;
+                                     }
+	
+		no.altura = 1 + Math.max(altura(no.esquerda), altura(no.direita));
+		int balance = getBalanco(no);
+		
+		if (balance > 1 && key < no.esquerda.key){
+			return rotacionaDireita(no);
+                                       }
+
+		if (balance < -1 && key > no.direita. key){
+			return rotacionaEsquerda(no);
+
+		}
+		if (balance > 1 && key> no.esquerda. key) {
+			no.esquerda = rotacionaEsquerda(no.esquerda);
+			return rotacionaDireita(no);
+		}
+		if (balance < -1 &&  key < no.direita. key) {
+			no.direita = rotacionaDireita(no.direita);
+			return rotacionaEsquerda(no);
+		}
+		return no;
+                      }
+}
